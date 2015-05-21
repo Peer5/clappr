@@ -49,6 +49,18 @@ class HLSEvents {
   audioTrackChange(trackId) {
     Mediator.trigger(`${this.instanceId}:audiotrackchanged`, trackId)
   }
+  requestPlaylist(instanceId, url, callbackLoaded, callbackFailure) {
+    Mediator.trigger(`${this.instanceId}:requestplaylist`, instanceId, url, callbackLoaded, callbackFailure)
+  }
+  abortPlaylist(instanceId) {
+    Mediator.trigger(`${this.instanceId}:abortplaylist`, instanceId)
+  }
+  requestFragment(instanceId, url, callbackLoaded, callbackFailure) {
+    Mediator.trigger(`${this.instanceId}:requestfragment`, instanceId, url, callbackLoaded, callbackFailure)
+  }
+  abortFragment(instanceId) {
+    Mediator.trigger(`${this.instanceId}:abortfragment`)
+  }
 }
 
 module.exports = HLSEvents
