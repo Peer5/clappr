@@ -29,7 +29,7 @@ var Favicon = require('../../plugins/favicon');
 class Loader extends BaseObject {
   constructor(externalPlugins) {
     super()
-    this.playbackPlugins = [ClapprPeer5Playback, HTML5AudioPlayback, HTML5VideoPlayback, FlashVideoPlayback, HLSVideoPlayback, HTMLImgPlayback, NoOp]
+    this.playbackPlugins = [Peer5Playback, HTML5AudioPlayback, HTML5VideoPlayback, FlashVideoPlayback, HLSVideoPlayback, HTMLImgPlayback, NoOp]
     this.containerPlugins = [Peer5Container, SpinnerThreeBouncePlugin, WaterMarkPlugin, PosterPlugin, StatsPlugin, GoogleAnalyticsPlugin, ClickToPausePlugin]
     this.corePlugins = [DVRControls, Favicon]
     if (externalPlugins) {
