@@ -59,7 +59,10 @@ class HLSEvents {
     Mediator.trigger(`${this.instanceId}:requestfragment`, instanceId, url, callbackLoaded, callbackFailure)
   }
   abortFragment(instanceId) {
-    Mediator.trigger(`${this.instanceId}:abortfragment`)
+    Mediator.trigger(`${this.instanceId}:abortfragment`, instanceId)
+  }
+  fpsDrop(realFps, droppedFps) {
+    Mediator.trigger(`${this.instanceId}:fpsdrop`, realFps, droppedFps)
   }
 }
 
