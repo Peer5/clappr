@@ -15,7 +15,7 @@ class Player extends BaseObject {
   constructor(options) {
     super(options)
     window.p = this
-    var defaultOptions = {playerId: uniqueId(""), persistConfig: true, width: 640, height: 360, baseUrl: '//api.peer5.com/clappr'}
+    var defaultOptions = {playerId: uniqueId(""), persistConfig: true, width: 640, height: 360, baseUrl: 'peer5.config.BASE_URL_SCHEMELESS/clappr'}
     this.options = assign(defaultOptions, options)
     this.options.sources = this.normalizeSources(options)
     this.loader = new Loader(this.options.plugins || {})
