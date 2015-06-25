@@ -88,7 +88,7 @@ class HLS extends Playback {
     this.el.playerCapLeveltoStage(this.capLevelToStage)
     this.el.playerSetmaxBufferLength(this.maxBufferLength)
     this.el.playerSetUseHardwareVideoDecoder(this.useHardwareVideoDecoder)
-    this.el.playerSetLogInfo(this.hlsLogEnabled)
+    //this.el.playerSetLogInfo(this.hlsLogEnabled)
   }
 
   updateHighDefinition(level) {
