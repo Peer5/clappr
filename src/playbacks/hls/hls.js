@@ -40,6 +40,7 @@ class HLS extends Playback {
     this.useHardwareVideoDecoder = (options.useHardwareVideoDecoder === undefined) ? !Browser.isChrome : options.useHardwareVideoDecoder
     this.maxBufferLength = (options.maxBufferLength === undefined) ? 120 : options.maxBufferLength
     this.hlsMinimumDvrSize = (options.hlsMinimumDvrSize == undefined) ? 60 : options.hlsMinimumDvrSize
+    this.hlsLogEnabled = (options.hlsLogEnabled == undefined) ? true : options.hlsLogEnabled
     this.highDefinition = false
     this.autoPlay = options.autoPlay
     this.defaultSettings = {
@@ -87,6 +88,7 @@ class HLS extends Playback {
     this.el.playerCapLeveltoStage(this.capLevelToStage)
     this.el.playerSetmaxBufferLength(this.maxBufferLength)
     this.el.playerSetUseHardwareVideoDecoder(this.useHardwareVideoDecoder)
+    this.el.playerSetLogInfo(this.hlsLogEnabled)
   }
 
   updateHighDefinition(level) {
@@ -354,7 +356,10 @@ class HLS extends Playback {
 }
 
 HLS.canPlay = function(resource, mimeType) {
-  return Browser.hasFlash && (!!resource.match(/^http(.*).m3u8?/) || mimeType === 'application/x-mpegURL')
+  var resourceParts = resource.split('?')[0].match(/.*\.(.*)$/) || []
+  return Browser.hasFlash &&
+        ((resourceParts.length > 1 && resourceParts[1] == "m3u8") ||
+          mimeType === 'application/x-mpegURL' || mimeType === 'application/vnd.apple.mpegurl')
 }
 
 module.exports = HLS
