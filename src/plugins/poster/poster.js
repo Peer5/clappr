@@ -93,7 +93,7 @@ class PosterPlugin extends UIContainerPlugin {
   clicked() {
     if (!this.options.chromeless) {
       this.container.play()
-      this.hidePlayButton()
+      //this.hidePlayButton()
     }
     return false
   }
